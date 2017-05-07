@@ -53,7 +53,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Routes
-app.use('/api', require('./routes/api'));
+app.use('/', require('./routes/api'));
 // app.get('/favicon.ico', function(req, res) {
 //     res.send(200);
 //     res.end();
