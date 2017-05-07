@@ -59,7 +59,7 @@ app.get('/', function(req, res) {
         res.render('index.html');
 });
 app.get('/favicon.ico', function(req, res) {
-        res.render('index');
+        res.render('index.html');
 });
 // Start server
 var port = process.env.PORT || 8080;
