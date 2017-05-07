@@ -17,11 +17,26 @@ app.use(express.static(__dirname + '/public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+//to block the favicon req
+var http=require('http');
+var server=http.createServer(function(req,res){
+	if(req.method==='GET' && req.url==='/favicon.ico'){
+		var fs=require('fs');
+		fs.createReadStream('favicon.ico');;
+		fs.pipe(res); //this will replace the call to end
+	}
+	else
+	{
+		res.end();
+	}
+});
+//end favicon req
+
 
 // Routes
 app.use('/api', require('./routes/api'));
 app.get('/favicon.ico', function(req, res) {
-    res.send(204);
+    res.send(200);
 });
 // Start server
 var port = process.env.PORT || 8080;
