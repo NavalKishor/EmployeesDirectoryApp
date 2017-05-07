@@ -3,13 +3,27 @@
   "version": "1.0.0",
   "description": "A Employee Directory using AngularJs RESTFul API,nodejs that talks to Mongodb database",
   "main": "server.js",
+  "scripts": {
+  "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "author": "naval_kishor_jha",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "express-favicon": "^2.0.0",
+	"mongodb": "^2.2.26",
     "mongoose": "^4.9.7",
     "node-restful": "^0.2.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NavalKishor/EmployeesDirectoryApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NavalKishor/EmployeesDirectoryApp/issues"
+  },
+  "homepage": "https://github.com/NavalKishor/EmployeesDirectoryApp#readme"
 }
