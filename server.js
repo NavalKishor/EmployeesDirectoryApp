@@ -20,6 +20,8 @@ const favicon = require('express-favicon');
 var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname+'/public/images/favicon.ico')))
+app.use(favicon(path.join(__dirname+'/public/favicon.ico')))
+app.use(favicon(path.join(__dirname+'/favicon.ico')))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
