@@ -13,7 +13,7 @@ mongoose.connect('mongodb://user1:user1@ds133261.mlab.com:33261/employees-demo')
 
 //2nd try favico
 const favicon = require('express-favicon');
-// var path = require('path')
+ var path = require('path')
 
 //end favicon
 // Express
