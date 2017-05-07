@@ -3,7 +3,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
+var routes=require('./routes/api.js');
 // MongoDB
 
 mongoose.connect('mongodb://user1:user1@ds133261.mlab.com:33261/employees-demo');
@@ -53,11 +53,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Routes
-app.use('/', require('./routes/api'));
-// app.get('/favicon.ico', function(req, res) {
-//     res.send(200);
-//     res.end();
-// });
+
+app.use('/api', require('./routes/api'));
+//app.get('/',routes.index);
+app.get('/favicon.ico', function(req, res) {
+        res.render('index');
+});
 // Start server
 var port = process.env.PORT || 8080;
 // var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
