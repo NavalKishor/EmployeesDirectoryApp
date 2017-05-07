@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Naval! MEAN Application</title>
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/ngProgress.css">
+<link rel="stylesheet" href="./css/toaster.css">
+
+<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="./css/bootstrap-iso.css" /> 
+  
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+</style>
+</head>
+<body ng-cloak>
+  <div class="container" ng-controller="EmployeesCtrl">
+   <br/>
+      <h1 align="center">Naval! MEAN Application - Employee Directory App</h1><br/><br/>
+    <form name="empForm"  class="form-horizontal">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</td>
+          <th>Date of Birth</td>
+          <th>Department</td>
+          <th>Gender</td>
+          <th>Age</td>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+         <td>
+		  <input  class="form-control" ng-model="emp.name" required placeholder="Name">		  
+		  </td>
+          <td> 
+		  <input type="email" class="form-control" ng-model="emp.email" required placeholder="abc@xyz.com" >
+
+		  </td>
+          <td>
+          <div class="bootstrap-iso">
+         <!--  <input  id="date" name="date" /> -->
+          <input class="form-control" type="text" ng-model="emp.dob" id="datepicker" name="datepicker"   required placeholder="YYYY-MM-DD" ng-change="myAgeFunction()" />
+          </div>
+
+        <!-- Include jQuery -->
+        <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
+
+        <!-- Include Date Range Picker -->
+        <script type="text/javascript" src="./js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="./css/bootstrap-datepicker3.css"/>
+        <!--  start -->
+       <script type="text/javascript" >
+        $(document).ready(function(){
+          var date_input=$('input[name="datepicker"]'); //our date input has the name "date"
+          var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+          date_input.datepicker({
+            format: 'yyyy-mm-dd',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+            
+          }) 
+          if(date_input!=""){
+             $('#date').datepicker("setDate", new Date($date_input.value) );  
+             $date_input.value="";
+           } 
+
+        })
+
+        $("#datepicker").bind("keydown", function (event) {
+           event.preventDefault();
+         });
+
+      </script>
+			  <!--  end -->
+
+			  </td>
+           <td><input class="form-control" ng-model="emp.dep" required placeholder="Department"></td>
+          <td><input class="form-control" ng-model="emp.gender" required placeholder="Gender"></td>
+          <td><input type="number" class="form-control" ng-model="emp.age" disabled placeholder="Age"  ></td>
+          <td><button class="btn btn-success btn-md" ng-click="add(emp)" ng-if="!emp._id" type="submit" ng-disabled="!empForm.$valid">Add Empolyee</button>
+            <div class="btn-group">
+              <button class="btn btn-success btn-md" ng-click="update(emp)" ng-if="emp._id" type="submit">Update</button>
+              <button class="btn" ng-click="deselect()" ng-if="emp._id">Clear</button>
+            </div>
+          </td>
+        </tr>
+        <tr ng-repeat="emp in emps">
+          <td>{{emp.name}}</td>
+          <td>{{emp.email}}</td>
+          <td>{{emp.dob | date : "y-MM-dd"}}</td>
+          <td>{{emp.dep}}</td>
+          <td>{{emp.gender}}</td>
+          <td>{{emp.age}}</td>
+         
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-danger btn-sm" ng-click="remove(emp)">Delete</button>
+              <button class="btn btn-primary btn-sm" ng-click="edit(emp._id)">Edit</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+  </div>
+
+<div data-loading></div>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+
+<!-- <script src="./js/bootstrap-datepicker.js"></script> -->
+<script src="./js/angular.min.js"></script>
+<script src="./js/angular-resource.min.js"></script>
+<script src="./js/angular-animate.min.js"></script>
+<script src="./js/ngProgress.min.js"></script>
+<script src="./js/toaster.js"></script>
+<script src="app/app.js"></script>
+<script src="app/employees.js"></script>
+</body>
+</html>
