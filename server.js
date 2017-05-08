@@ -20,7 +20,7 @@ const favicon = require('express-favicon');
 var app = express();
 app.use(express.static(__dirname + '/public'));
 
-app.use(favicon(path.join(__dirname+'/public/images/favicon.ico' , { maxAge: 2592000000 })));
+//app.use(favicon(path.join(__dirname+'/public/images/favicon.ico' , { maxAge: 2592000000 })));
 //app.use(favicon(path.join(__dirname+'/public/favicon.ico', { maxAge: 2592000000 })));
 //app.use(express.favicon(__dirname + '/public/favicon.ico', { maxAge: 2592000000 }));
 //app.use(favicon(path.join(__dirname+'/favicon.ico' , { maxAge: 2592000000 })));
