@@ -62,7 +62,7 @@ app.use('/api', require('./routes/api'));
 //         res.render('index.html');
 // });
 // Start server
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8050;
 // var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 // , ip = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 //app.listen(port, ip, function() {

@@ -57,7 +57,7 @@ display: none !important;
         <!--  start -->
        <script type="text/javascript" >
         $(document).ready(function(){
-          var date_input=$('input[name="datepicker"]'); //our date input has the name "date"
+          var date_input=$('input[name="datepicker"]'); //our date input has the name "datepicker"
           var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
           date_input.datepicker({
             format: 'yyyy-mm-dd',
@@ -67,8 +67,9 @@ display: none !important;
             
           }) 
           if(date_input!=""){
-             $('#date').datepicker("setDate", new Date($date_input.value) );  
-             $date_input.value="";
+            // $('#datepicker').datepicker({ dateFormat: 'yyyy-mm-dd' }).datepicker('setDate', new Date(date_input.val()))
+           //  $('#datepicker').datepicker("setDate", new Date($('input[name="datepicker"]').val()));
+             //date_input="";
            } 
 
         })
